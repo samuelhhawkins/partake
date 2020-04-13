@@ -15,6 +15,9 @@ app.use('/', express.static('static'))
 
 
 //******************ROUTES
+//controllers
+app.use('/auth', require('./controllers/auth'))
+
 //route to render home
 app.get('/', (req, res) => {
   res.render('home')
