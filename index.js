@@ -1,6 +1,9 @@
 // require needed modules
 let express = require('express')
 let layouts = require('express-ejs-layouts')
+let flash = require('connect-flash')
+let session = require('express-session')
+
 //create an app instance
 let app = express()
 
@@ -15,6 +18,24 @@ app.use('/', express.static('static'))
 
 //decript the vars coming in from post routes/ forms
 app.use(express.urlencoded({extended: false}))
+
+//set up sessions
+app.use(session({
+  secret: "any string is fine",
+  resave: false,
+  saveUnitialized: true
+}))
+
+//set up connect flash for the flash alert messages (depends on session order matters!!)
+app.use(flash())
+
+//use locals to write some custom middle ware so that flash can be used everyewhere
+//custom middleware - make certain variables available to ejs pages through locals
+app.use((req, res, next) => {
+  res.locals.alerts = req.flash()
+  next()
+})
+
 //******************ROUTES
 //controllers
 app.use('/auth', require('./controllers/auth'))
