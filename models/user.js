@@ -1,4 +1,7 @@
 'use strict';
+let bcrypt = require('bcryptjs')
+
+
 module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
     firstname: {
@@ -19,19 +22,28 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'Oof, you forgot a password'
         }
       }
-    },,
+    },
     email: {
-      DataTypes.STRING,
+      type:  DataTypes.STRING,
       validate: {
-        isEmail: {
-          msg: 'please give a valid email address'
+       isEmail: {
+           msg: 'please give a valid email address'
         }
       }
     },
     bio: DataTypes.TEXT,
     username: DataTypes.STRING,
     admin: DataTypes.BOOLEAN
-  }, {});
+  }, {
+    hooks: {
+        beforeCreate: pendingUser => {
+          //hash the passwords // can be done in one line
+          let hashedPassword = bcrypt.hashSync(pendingUser.password, 12)
+          //reassign the hashed Password (overwrite the plane text password)
+          pendingUser.password = hashedPassword
+      }
+    }
+  });
   user.associate = function(models) {
     // associations can be defined here
   };

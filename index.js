@@ -20,7 +20,7 @@ app.use('/', express.static('static'))
 app.use(express.urlencoded({extended: false}))
 
 //set up sessions
-app.use(session({
+app.use(session ({
   secret: "any string is fine",
   resave: false,
   saveUnitialized: true
