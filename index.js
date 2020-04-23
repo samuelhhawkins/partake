@@ -1,3 +1,6 @@
+
+require('dotenv').config()
+
 // require needed modules
 let express = require('express')
 let layouts = require('express-ejs-layouts')
@@ -21,9 +24,9 @@ app.use(express.urlencoded({extended: false}))
 
 //set up sessions
 app.use(session ({
-  secret: "any string is fine",
+  secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUnitialized: true
+  saveUninitialized: true
 }))
 
 //set up connect flash for the flash alert messages (depends on session order matters!!)
@@ -38,6 +41,7 @@ app.use((req, res, next) => {
 
 //******************ROUTES
 //controllers
+app.use('/profile', require('./controllers/profile'))
 app.use('/auth', require('./controllers/auth'))
 
 //route to render home
