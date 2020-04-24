@@ -18,16 +18,6 @@ This is a boiler plate for an express app with local user authentication. It exi
 
 ## Models
 
-
-## Routes
-**Routes in Index**
-
-| Method | Path | Purpose|
-| ------ | ---- | -------|
-| GET | '/' | Home page |
-| GET | '/' | Catch-all for 404s |
-
-
 **User Model**
 
 | Method | Type | Notes |
@@ -41,8 +31,13 @@ This is a boiler plate for an express app with local user authentication. It exi
 | createdAt | Date | Automaticlly added by Sequelize|
 | updateddAt | Date | Automaticlly added by Sequelize|
 
+## Routes
+**Routes in Index**
 
-## Directions For Use
+| Method | Path | Purpose|
+| ------ | ---- | -------|
+| GET | '/' | Home page |
+| GET | '/' | Catch-all for 404s |
 
 | Method | Path | Purpose|
 | ------ | ---- | -------|
@@ -59,3 +54,11 @@ This is a boiler plate for an express app with local user authentication. It exi
 | GET | `/profile/user` | Show user dashboard (authorized user only) |
 | GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
 | GET | `/profile/guest/:id` | View user dashboard as guest (authorized user only) |
+
+## Directions For Use
+
+### 1. Clone repository, but with different Name 
+
+```sh
+git clone <repo_link> <new_name>
+```
