@@ -20,8 +20,8 @@ This is a boiler plate for an express app with local user authentication. It exi
 
 **User Model**
 
-| Column | Type | Notes |
-| ------ | ---- | -------| ------------------- |
+| Method | Type | Notes |
+| ------ | ---- | -------|
 |  id | Integer | Serial Primary Key |
 | firstname| String | Required length > 1 |
 | lastname| String | - |
@@ -32,16 +32,17 @@ This is a boiler plate for an express app with local user authentication. It exi
 | updateddAt | Date | Automaticlly added by Sequelize|
 
 ## Routes
-
 **Routes in Index**
+
 | Method | Path | Purpose|
-| ------ | ---- | -------| ------------------- |
+| ------ | ---- | -------|
 | GET | '/' | Home page |
 | GET | '/' | Catch-all for 404s |
 
 ## Directions For Use
+
 | Method | Path | Purpose|
-| ------ | ---- | -------| ------------------- |
+| ------ | ---- | -------|
 | GET | '/auth/login' | Render login |
 | POST | '/auth/login' | Process login data |
 | GET | '/auth/signup' | Render signup form |
