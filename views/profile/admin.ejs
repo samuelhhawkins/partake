@@ -1,1 +1,24 @@
-<h1>ADMIN PAGe</h1>
+<h1>ADMIN: <%= user.firstname %></h1>
+
+<h1><%= user.firstname%>'s PROFILE</h1>
+<p><strong>Account created On:</strong> <%= moment(user.createdAt).format('dddd MMMM Do[,] YYYY')%></p>
+
+<div class="row">
+  <div class="col s12 m4">
+     <h5>Bio: <%= user.bio %></h5>
+  </div>
+
+  <div class="col s12 m4">
+    <h3><strong>View User's Pages</strong></h3>
+    <% users.forEach(u => { %>
+      <div>
+        <a href="/profile/guest/<%= u.id%>">
+              <%= u.firstname %>
+              <% if (user.id == u.id) { %>
+                (hey its you!)
+                <% } %>
+        </a>
+      </div>
+  <%  })%>
+  </div>
+</div>

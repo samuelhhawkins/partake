@@ -45,10 +45,12 @@ passport.use(new LocalStrategy({
     // Check if user foound; also if yes check password too
     if (foundUser && foundUser.validPassword(password)) {
       //GOOD --- user existing and password is correct
+      console.log('good')
       done(null, foundUser)
     }
     else {
       // BAD -- user doesnt exist or p word is bad
+      console.log('bad')
       done(null, null)
     }
   })
