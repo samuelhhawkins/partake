@@ -18,6 +18,16 @@ This is a boiler plate for an express app with local user authentication. It exi
 
 ## Models
 
+
+## Routes
+**Routes in Index**
+
+| Method | Path | Purpose|
+| ------ | ---- | -------|
+| GET | '/' | Home page |
+| GET | '/' | Catch-all for 404s |
+
+
 **User Model**
 
 | Method | Type | Notes |
@@ -31,13 +41,6 @@ This is a boiler plate for an express app with local user authentication. It exi
 | createdAt | Date | Automaticlly added by Sequelize|
 | updateddAt | Date | Automaticlly added by Sequelize|
 
-## Routes
-**Routes in Index**
-
-| Method | Path | Purpose|
-| ------ | ---- | -------|
-| GET | '/' | Home page |
-| GET | '/' | Catch-all for 404s |
 
 ## Directions For Use
 
@@ -48,3 +51,11 @@ This is a boiler plate for an express app with local user authentication. It exi
 | GET | '/auth/signup' | Render signup form |
 | POST | '/auth/signup' | process signup data |
 | GET | '/auth/logout' | Remove user from signup |
+
+
+**Routes in controllers/profile.js**
+| Method | Path | Purpose |
+| ------ | ---------------------- | ---------------------------- |
+| GET | `/profile/user` | Show user dashboard (authorized user only) |
+| GET | `/profile/admin` | Show admin dashboard (authorized admin only) |
+| GET | `/profile/guest/:id` | View user dashboard as guest (authorized user only) |
