@@ -74,3 +74,25 @@ git clone https://github.com/samuelhhawkins/auth_boiler.git shiny-new-project
 ```sh
 npm i 
 ```
+### 3. Customize the new project
+
+remove defaulty stuff. For example:
+
+* Title in `layout.ejs`
+* Logo in nav bar 
+* Description and repository fields in package.json
+* Remove this boiler plate's readme content
+* Switch Favicon to one spacific to your project (in `layout.ejs` head section)
+
+### 4. Create new database for your project 
+
+```sh
+createdb <new_db_name>
+```
+
+
+
+*
+*
+*
+*
