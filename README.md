@@ -103,3 +103,50 @@ For example, if the new project doesnt need a birthday field, then delete it fro
 ```sh
 sequelize db:migrate
 ```
+
+### 8. Create a file for enviroment variables
+
+```sh
+touch .env
+```
+> or do it in text editor 
+Include the following .env variables:
+
+* SESSION_SECRET - this is a key for the session to use 
+
+^^^^^^ this is where Oauth and api keys live 
+
+### 9. Run the server and make sure it actually works 
+
+```sh
+nodemon
+```
+### 10. Delete the origin that points to the boiler plate repo 
+
+Currently if we run this command:
+
+```sh
+git remote -v
+```
+
+it will show `origin` as being hooked up to the boilerplate repo. We want a fresh one so instead lets delete the origin remote:
+
+```sh
+git remote remove origin
+```
+
+
+
+### 11. Create new Empty git repository  
+
+via the github website . Follow directions as they show up when you create new repo
+
+```sh
+git init 
+git add .
+git commit -m "whatever"
+git remote add origin <new_repo_link>
+git push origin master 
+```
+
+**Happy developing!**
