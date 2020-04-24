@@ -58,7 +58,19 @@ This is a boiler plate for an express app with local user authentication. It exi
 ## Directions For Use
 
 ### 1. Clone repository, but with different Name 
-
+run the following code in terminal:
 ```sh
 git clone <repo_link> <new_name>
+```
+
+**For Example**
+
+```sh
+git clone https://github.com/samuelhhawkins/auth_boiler.git shiny-new-project
+```
+
+### 2. Install the modules from package.json
+
+```sh
+npm i 
 ```
