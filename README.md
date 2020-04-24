@@ -93,3 +93,13 @@ createdb <new_db_name>
 ### 5. alter the sequelize config.json file 
 
 In `condig/config.json`, Update the database name to the one created in step 4. other settings are okay but check username, password, and dialect = probably postgres
+
+### 6. check the user model for relevance to new project's needs
+
+For example, if the new project doesnt need a birthday field, then delete it from the user model and migration files.
+
+### 7. run your sequelize migrations 
+
+```sh
+sequelize db:migrate
+```
