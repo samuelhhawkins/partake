@@ -33,4 +33,17 @@ This is a boiler plate for an express app with local user authentication. It exi
 
 ## Routes
 
+**Routes in Index**
+| Method | Path | Purpose|
+| ------ | ---- | -------| ------------------- |
+| GET | '/' | Home page |
+| GET | '/' | Catch-all for 404s |
+
 ## Directions For Use
+| Method | Path | Purpose|
+| ------ | ---- | -------| ------------------- |
+| GET | '/auth/login' | Render login |
+| POST | '/auth/login' | Process login data |
+| GET | '/auth/signup' | Render signup form |
+| POST | '/auth/signup' | process signup data |
+| GET | '/auth/logout' | Remove user from signup |
