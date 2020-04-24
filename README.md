@@ -90,9 +90,6 @@ remove defaulty stuff. For example:
 createdb <new_db_name>
 ```
 
+### 5. alter the sequelize config.json file 
 
-
-*
-*
-*
-*
+In `condig/config.json`, Update the database name to the one created in step 4. other settings are okay but check username, password, and dialect = probably postgres
