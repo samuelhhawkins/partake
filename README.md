@@ -21,8 +21,15 @@ This is a boiler plate for an express app with local user authentication. It exi
 **User Model**
 
 | Column | Type | Notes |
-| ------ | ---- | -------| -------------------|
+| ------ | ---- | -------| ------------------- |
 |  id | Integer | Serial Primary Key |
+| firstname| String | Required length > 1 |
+| lastname| String | - |
+| password | String | unique login |
+| bio | text | - |
+| admin | Boolean | Defaulted to False |
+| createdAt | Date | Automaticlly added by Sequelize|
+| updateddAt | Date | Automaticlly added by Sequelize|
 
 ## Routes
 
