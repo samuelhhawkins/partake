@@ -1,14 +1,17 @@
 <nav class = 'blue-grey lighten-3' >
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Logo</a>
+    <a href="#" class="brand-logo">Partake</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger">
       <i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/">Home</a></li>
+      <li><a href="/">Partake</a></li>
 
       <% if (user) {%>
       <li>
         <a href="/profile/user">Profile</a>
+      </li>
+      <li>
+        <a href="/post/new">post</a>
       </li>
       <% if (user.admin) {%>
         <li>
@@ -31,6 +34,9 @@
 
         <% if (user) {%>
         <li><a href="/profile/user">Profile</a></li>
+        <li>
+          <a href="/post/new">post</a>
+        </li>
         <% if (user.admin) {%>
           <li>
             <a href="/profile/admin">Admin</a>

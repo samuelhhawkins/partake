@@ -8,7 +8,7 @@ body{
 }
 
 h1 {
-  color: skyblue;
+  color: black;
 }
 
 body {
@@ -19,4 +19,17 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+label {
+  color: black
+}
+
+#upload_widget {
+  margin: 20px;
+}
+
+.form-group {
+  margin: 40px;
+  column-count: ;
+
 }

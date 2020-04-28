@@ -6,6 +6,8 @@ let express = require('express')
 let layouts = require('express-ejs-layouts')
 let flash = require('connect-flash')
 let session = require('express-session')
+var cloudinary = require('cloudinary').v2;
+
 
 //create an app instance
 let app = express()
@@ -50,7 +52,7 @@ app.use((req, res, next) => {
 //controllers
 app.use('/profile', require('./controllers/profile'))
 app.use('/auth', require('./controllers/auth'))
-
+app.use('/post', require('./controllers/post'))
 //route to render home
 app.get('/', (req, res) => {
   res.render('home')
