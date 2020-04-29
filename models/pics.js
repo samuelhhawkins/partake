@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   pics.associate = function(models) {
     // associations can be defined here
-    models.pics.belongsTo(models.posts, {
+    models.pics.belongsToMany(models.posts, {
   through: 'posts_pics',
   onDelete: 'CASCADE'
 })

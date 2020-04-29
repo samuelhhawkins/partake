@@ -8,7 +8,6 @@ let flash = require('connect-flash')
 let session = require('express-session')
 var cloudinary = require('cloudinary').v2;
 
-
 //create an app instance
 let app = express()
 
@@ -25,7 +24,7 @@ app.use('/', express.static('static'))
 
 //decript the vars coming in from post routes/ forms
 app.use(express.urlencoded({extended: false}))
-
+app.use(express.json())
 //set up sessions
 app.use(session ({
   secret: process.env.SESSION_SECRET,
@@ -53,10 +52,24 @@ app.use((req, res, next) => {
 app.use('/profile', require('./controllers/profile'))
 app.use('/auth', require('./controllers/auth'))
 app.use('/post', require('./controllers/post'))
+
+
 //route to render home
-app.get('/', (req, res) => {
-  res.render('home')
-})
+
+//route to render all posts on home page
+app.get('/', function(req, res) {
+  db.posts.findAll({
+    include: [db.users, db.pics, db.tags]
+  }).then(function(posts) {
+    res.render('/home', {users: posts})
+  })
+  .catch(err => {
+      console.log(err)
+      res.render('error')
+    })
+  })
+
+
 //create wild card rought (catch-all) this goes LAST!!!!!!!!
 app.get('*', (req, res) => {
   res.render('error')

@@ -1,14 +1,13 @@
 <h3>Art for the people!</h3>
-<div class="row">
-  <div class="col s3">
-    post
-  </div>
-  <div class="col s3">
-    post
-  </div>
-  <div class="col s3">
-    post
-  </div>
-  <div class="col 3">
-    post
-  </div>
+
+<% posts.forEach(function(p) { %>
+      <div class="well">
+        <h2>
+          <a href="/post/<%= p.id %>"><%= p.title %></a>
+          <small>by <%= p.users.firstname %></small>
+        </h2>
+        <p>
+          <strong><%= moment(p.createdAt).calendar() %></strong>
+        </p>
+      </div>
+    <% }) %>

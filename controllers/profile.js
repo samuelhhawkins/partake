@@ -3,6 +3,8 @@ let moment = require('moment')
 let adminLogin = require('../middleware/adminLogin')
 let userLogin = require('../middleware/userLogin')
 let db = require('../models')
+var async = require('async')
+
 //Custome middleware that is only applied to the routes in this profile
 router.use(userLogin)
 
@@ -11,7 +13,17 @@ router.use(userLogin)
 //get /profile/user - a normal profile for the plebs
 //NOTE: Protect this route from users who are not logged in
 router.get('/user', (req, res) => {
-  res.render('profile/user', { moment })
+  db.user.findOne({
+    where: {id: req.user.id},
+    include: [{
+      model: db.posts,
+      include: [db.pics]
+    }]
+  })
+  .then(userProfile => {
+    res.render('profile/user', { moment, userProfile })
+  })
+
 })
 
 
