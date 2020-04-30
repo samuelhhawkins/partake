@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # auth_boiler
 boiler for proj 2 
 
@@ -150,3 +151,7 @@ git push origin master
 ```
 
 **Happy developing!**
+=======
+# partake
+partake app 
+>>>>>>> 4236dac591a827ec92fc1c0710f1eb95e908695c
