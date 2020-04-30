@@ -1,4 +1,5 @@
 
+<h3>If you want to change pics or tags please delete the post</h3>
 
             <form action="/post/<%=posts.id%>?_method=PUT" method="POST">
 
@@ -12,12 +13,6 @@
                 <div class="form-group col s4 white" >
                   <label for="title"><strong>Title</strong></label>
                   <input type="text" class="form-control" id="title" name="title" value=' <%=posts.title%> ' required>
-                </div>
-
-
-                <div class="form-group col s6 white"  >
-                  <label for="tags"><strong>Tags</strong></label>
-                  <input type="text" id='tags' name="tags" class="form-control" >
                 </div>
 
 
