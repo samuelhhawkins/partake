@@ -115,12 +115,25 @@ router.put('/:id', (req, res) => {
 
 
 router.delete('/:id', (req, res) => {
-    db.posts.destroy({
-        where: { id: req.params.id },
-        include: [db.pics, db.tags],
+  console.log('inside delete route')
+  db.posts_pics.destroy({
+    where: {postId: req.params.id}
+  })
+  .then(() => {
+    console.log('inside post tags route')
+
+    db.posts_tags.destroy({
+      where: {postId: req.params.id}
     })
     .then(() => {
-        res.redirect('/profile/user')
+      console.log('inside post route')
+      db.posts.destroy({
+          where: { id: req.params.id }
+      })
+      .then(() => {
+          res.redirect('/profile/user')
+        })
+      })
     })
     .catch(err => {
         console.log('Error in delete route', err)
