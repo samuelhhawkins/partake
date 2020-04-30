@@ -1,1 +1,14 @@
 <h1>this is the show page </h1>
+<%= p.title %>
+
+
+<picture>
+<%if (p.pics[0]) { %>
+<img class='pics' src="<%= p.pics[0].file %>" alt="a pic">
+<% } %>
+</picture>
+<p><%= p.caption %></p>
+<p><%= p.wants %></p>
+<% p.tags.forEach(t => { %>
+#<%= t.tag %>
+<% })%>

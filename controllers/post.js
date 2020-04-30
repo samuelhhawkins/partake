@@ -17,7 +17,16 @@ router.get('/new', function(req, res) {
   })
 })
 
+router.get('/show/:id', function(req, res) {
+  db.posts.findOne({
+    where: {id: req.params.id},
+    include: [db.pics, db.tags]
+  })
+  .then(function(posts) {
+    res.render('post/show', {p: posts})
+  })
 
+})
 //POST route for posting form make sure it sends to browse and profile
 router.post('/new', function(req, res) {
   let tags = []

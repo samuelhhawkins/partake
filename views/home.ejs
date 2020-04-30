@@ -7,11 +7,14 @@
         <h3>
           <a href="post/show/<%= p.id %>"><%= p.title %></a>
         </h3>
-      <picture>
+
+      <div class="pictures">
         <%if (p.pics[0]) { %>
         <img class='pics' src="<%= p.pics[0].file %>" alt="a pic">
         <% } %>
-      </picture>
+      </div>
+
+
       <p><%= p.caption %></p>
       <p><%= p.wants %></p>
 

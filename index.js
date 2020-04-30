@@ -21,7 +21,7 @@ app.set('view engine', 'ejs')
 
 //tell express to use layoutes modules
 app.use(layouts)
-app.use('/', express.static('static'))
+app.use(express.static('static'))
 
 //decript the vars coming in from post routes/ forms
 app.use(express.urlencoded({extended: false}))
