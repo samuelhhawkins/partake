@@ -30,6 +30,29 @@ label {
 
 .form-group {
   margin: 40px;
-  column-count: ;
+}
 
+.pics {
+  max-width: 170px;
+  max-height: 170px
+}
+
+.float{
+  background-color: beige;
+  width: 23%;
+  height: 422px;
+  padding: 5px;
+  float: left;
+  flex: auto;
+  margin: 10px;
+}
+
+.btn {
+  margin: 20px;
+}
+.btnn{
+  text-align: center;
+  width: 40px;
+  height: 10px;
+  float: right;
 }

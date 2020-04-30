@@ -15,22 +15,37 @@
 
     <% if(userProfile && userProfile.posts) { %>
     <% userProfile.posts.forEach(function(p) { %>
-      <div class="well">
-        <h3>
-          <a href="post/show/<%= p.id %>"><%= p.title %></a>
-        </h3>
+
+
+      <div class="float">
+        <div class="edit">
+
+             <a href="/post/<%=p.id%>">
+                 <button type="button" class="btnn">
+                      edit
+                  </button>
+              </a>
+                       <h3>
+            <a href="post/show/<%= p.id %>"><%= p.title %></a>
+          </h3>
+        </div>
+
       <picture>
-        <img src="<%= p.pics[0] %>" alt="a pic">
+        <%if (p.pics[0]) { %>
+        <img class='pics' src="<%= p.pics[0].file %>" alt="a pic">
+        <% } %>
       </picture>
       <p><%= p.caption %></p>
       <p>I'm looking for: <%= p.wants %></p>
+      <% p.tags.forEach(t => { %>
+          #<%= t.tag %>
+      <% })%>
 
     <p>
       <strong><%= moment(p.createdAt).calendar() %></strong>
     </p>
-
+      </div>
     <% }) %>
   <% } else { %>
     <h3>No posts yet!</h3>
   <% } %>
-  </div>

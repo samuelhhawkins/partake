@@ -7,7 +7,8 @@ let layouts = require('express-ejs-layouts')
 let flash = require('connect-flash')
 let session = require('express-session')
 var cloudinary = require('cloudinary').v2;
-
+let db = require('./models')
+let methodOverride = require('method-override')
 //create an app instance
 let app = express()
 
@@ -34,6 +35,8 @@ app.use(session ({
 
 //set up connect flash for the flash alert messages (depends on session order matters!!)
 app.use(flash())
+app.use(methodOverride('_method'));
+
 
 // set up passport (depends on session; must come after it)
 app.use(passport.initialize())
@@ -59,9 +62,10 @@ app.use('/post', require('./controllers/post'))
 //route to render all posts on home page
 app.get('/', function(req, res) {
   db.posts.findAll({
-    include: [db.users, db.pics, db.tags]
+    include: [db.pics, db.tags],
+    order: [['createdAt', 'DESC']]
   }).then(function(posts) {
-    res.render('/home', {users: posts})
+    res.render('home', {posts})
   })
   .catch(err => {
       console.log(err)

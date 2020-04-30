@@ -17,10 +17,11 @@ router.get('/user', (req, res) => {
     where: {id: req.user.id},
     include: [{
       model: db.posts,
-      include: [db.pics]
+      include: [db.pics, db.tags]
     }]
   })
   .then(userProfile => {
+    console.log(userProfile)
     res.render('profile/user', { moment, userProfile })
   })
 
@@ -49,6 +50,21 @@ router.get('/admin', adminLogin, (req, res) => {
     console.log(err)
     res.render('error')
   })
+})
+
+router.put('/:id', (req, res) => {
+    console.log('REQUEST BODY', req.body)
+    db.users.update(
+        req.body,
+        { where: { id: req.params.id } }
+    )
+    .then(() => {
+        res.redirect('/user/' + req.params.id)
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
 })
 
 

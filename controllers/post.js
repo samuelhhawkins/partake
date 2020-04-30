@@ -28,11 +28,15 @@ router.post('/new', function(req, res) {
   db.posts.create({
     title: req.body.title,
     caption: req.body.caption,
-    wants: req.body.wants
+    wants: req.body.wants,
+    userId : req.body.userId
   })
   .then(function(post) {
     db.pics.create({
       file: req.body.files
+    })
+    .then(function(pic) {
+      post.addPic(pic)
     })
     .then(function() {
       if (tags.length){
@@ -75,13 +79,14 @@ router.post('/new', function(req, res) {
 router.get('/:id', function(req, res) {
   db.posts.findOne({
     where: { id: req.params.id },
-    include: [db.user, db.pics, db.tags]
+    include: [db.user, db.pics, db.tags],
+    order: [['createdAt', 'DESC']]
   })
 
-  .then(function(post) {
-    if (!post) throw Error()
+  .then(function(posts) {
+    if (!posts) throw Error()
     console.log(posts.user)
-    res.render('/', { posts: posts })
+    res.render('post/edit', { posts: posts })
   })
   .catch(function(error) {
     console.log(error)
@@ -90,5 +95,37 @@ router.get('/:id', function(req, res) {
 })
 //add item and all of images to db
 // redirect to profile
+
+
+router.put('/:id', (req, res) => {
+    console.log('REQUEST BODY', req.body)
+    db.posts.update(
+        req.body,
+        { where: { id: req.params.id } },
+
+    )
+    .then(() => {
+        res.redirect('/profile/user')
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
+})
+
+
+router.delete('/:id', (req, res) => {
+    db.posts.destroy({
+        where: { id: req.params.id },
+        include: [db.pics, db.tags],
+    })
+    .then(() => {
+        res.redirect('/profile/user')
+    })
+    .catch(err => {
+        console.log('Error in delete route', err)
+        res.render('error')
+    })
+})
 
 module.exports = router

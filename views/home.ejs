@@ -1,13 +1,26 @@
 <h3>Art for the people!</h3>
 
 <% posts.forEach(function(p) { %>
-      <div class="well">
-        <h2>
-          <a href="/post/<%= p.id %>"><%= p.title %></a>
-          <small>by <%= p.users.firstname %></small>
-        </h2>
-        <p>
-          <strong><%= moment(p.createdAt).calendar() %></strong>
-        </p>
-      </div>
+
+    <!-- <div class="row"> -->
+      <div class="float">
+        <h3>
+          <a href="post/show/<%= p.id %>"><%= p.title %></a>
+        </h3>
+      <picture>
+        <%if (p.pics[0]) { %>
+        <img class='pics' src="<%= p.pics[0].file %>" alt="a pic">
+        <% } %>
+      </picture>
+      <p><%= p.caption %></p>
+      <p>I'm looking for: <%= p.wants %></p>
+
+      <% p.tags.forEach(t => { %>
+          #<%= t.tag %>
+      <% })%>
+    </div>
+
+  <!-- </div> -->
+
+
     <% }) %>
