@@ -24,7 +24,6 @@ router.get('/user', (req, res) => {
     console.log(userProfile)
     res.render('profile/user', { moment, userProfile })
   })
-
 })
 
 

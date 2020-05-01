@@ -17,10 +17,11 @@ router.get('/new', function(req, res) {
   })
 })
 
+
 router.get('/show/:id', function(req, res) {
   db.posts.findOne({
     where: {id: req.params.id},
-    include: [db.pics, db.tags]
+    include: [db.pics, db.tags, db.user]
   })
   .then(function(posts) {
     res.render('post/show', {p: posts})
@@ -149,5 +150,7 @@ router.delete('/:id', (req, res) => {
         res.render('error')
     })
 })
+
+
 
 module.exports = router

@@ -1,8 +1,11 @@
-<h2>post your creation here</h2>
+<div class="floats">
+  <h2>post your creation here</h2>
 
-<form action="/post/new" method="POST">
-  <label for="upload_widget">Pictures:</label>
-  <button id="upload_widget" class="cloudinary-button">Upload files</button>
+  <form action="/post/new" method="POST">
+    <label for="upload_widget">Pictures:</label>
+    <button id="upload_widget" class="cloudinary-button">Upload files</button>
+
+</div>
 
 
 
@@ -33,26 +36,26 @@
 
   <input type="hidden" name="files" value="" id='images2'>
 
-    <div class="form-group col s4 white" >
+    <div class="form-group col s4" >
       <label for="title"><strong>Title</strong></label>
       <input type="text" class="form-control" id="title" name="title" required>
     </div>
 
 
-    <div class="form-group col s6 white"  >
+    <div class="form-group col s6"  >
       <label for="tags"><strong>Tags</strong></label>
       <input type="text" id='tags' name="tags" class="form-control" >
     </div>
 
 
 
-          <div class="input-field col s8 white">
+          <div class="input-field col s8">
               <textarea id="caption" name="caption" class="materialize-textarea"></textarea>
               <label for="caption">Caption</label>
           </div>
 
 
-      <div class="input-field col s8 white">
+      <div class="input-field col s8">
           <textarea id="wants" name="wants" class="materialize-textarea" placeholder="What I'm looking for"></textarea>
           <label for="wants">Wants</label>
       </div>
