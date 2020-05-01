@@ -1,14 +1,15 @@
-<h1>this is the show page </h1>
-<%= p.title %>
 
 
-<picture>
-<%if (p.pics[0]) { %>
-<img class='pics' src="<%= p.pics[0].file %>" alt="a pic">
-<% } %>
-</picture>
-<p><%= p.caption %></p>
-<p><%= p.wants %></p>
-<% p.tags.forEach(t => { %>
-#<%= t.tag %>
-<% })%>
+<div class="floats">
+  <h1><%= p.title %></h1>
+  <picture>
+  <%if (p.pics[0]) { %>
+  <img class='pics' src="<%= p.pics[0].file %>" alt="a pic">
+  <% } %>
+  </picture>
+  <h3><%= p.caption %></h3>
+  <h3><%= p.wants %></h3>
+  <% p.tags.forEach(t => { %>
+  <h3>#<%= t.tag %></h3>
+  <% })%>
+</div>

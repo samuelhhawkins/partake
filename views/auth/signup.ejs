@@ -4,7 +4,7 @@
   <form class="col s12" method="POST" action="/auth/signup">
     <div class="row">
       <div class="input-field col s12">
-        <input placeholder="Placeholder" id="email" type="email" class="validate" name ='email'>
+        <input id="email" type="email" class="validate" name ='email'>
         <label for="email">Email</label>
       </div>
       <div class="input-field col s6">
@@ -30,7 +30,7 @@
       </div>
 
         <div class="input-field col s10">
-          <textarea id="bio" class="materialize-textarea" name = 'bio'><%= data.bio %></textarea>
+          <textarea id="bio" class="materialize-textarea" name = 'bio' placeholder="Add things like contact info, interests and what you like to make."><%= data.bio %></textarea>
           <label for="bio">Bio</label>
         </div>
 
